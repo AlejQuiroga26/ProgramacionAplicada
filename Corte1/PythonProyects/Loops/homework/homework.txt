@@ -1,19 +1,19 @@
-a = input("Enter a number: ")
+a = input("Enter a number: ")         # Declara a "a" como entero
 a = int(a)
 b = input("Enter b number: ")
-b = float(b)
+b = float(b)                          # Declara a "b" como flotante
 c = a + b
 
-if a == b:
+if a == b:                            # Anuncia si tienen el mismo valor 
     print("equal")
 else:
     print("Different")
 
-print("Type of a is: ", type(a))
-print("Type of b is: ", type(b))
+print("Type of a is: ", type(a))       #imprime el tipo de variable para a
+print("Type of b is: ", type(b))       #imprime el tipo de variable para b
 print("c = ", c)
 
 if type(a) == type(b):
-    print("a and b are of the same type")
+    print("a and b are of the same type")      # Este condicional siempre va a ser falso 
 else:
     print("a and b are of different type")
