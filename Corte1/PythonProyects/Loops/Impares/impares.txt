@@ -1,1 +1,8 @@
+while True:
 
+    valor = int(input('Ingrese un número: '))
+
+    if(valor%2 == 0):
+        print(f'El numero {valor} es PAR')
+    else:
+        print(f'El numero {valor} es IMPAR')
