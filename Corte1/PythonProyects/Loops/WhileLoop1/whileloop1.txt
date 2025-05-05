@@ -1,1 +1,6 @@
+for i in range(1, 6):        # Bucle 'for' que va desde i = 1 hasta i = 5 (no incluye el 6)
+    while i <= 4:            # Mientras i sea menor o igual a 4, se ejecuta el bucle 'while'
+        i += 1               # Se incrementa i en 1
+        print(i)             # Se imprime el nuevo valor de i
+    break                    # Sale del bucle 'for' inmediatamente después de la primera iteración
 
