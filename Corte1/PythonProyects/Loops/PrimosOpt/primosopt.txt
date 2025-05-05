@@ -1,1 +1,60 @@
+# Definimos el límite superior del rango para buscar números primos
+tope_rango = 100
+
+# -----------------------------
+# Método SIN usar break
+# -----------------------------
+ciclos_sin_break = 0  # Contador para registrar cuántas veces se ejecuta el bucle interno
+n = 0  # Inicializa el número que se evaluará
+primo = True  # Bandera que indica si un número es primo
+
+# Bucle principal que evalúa los números desde 0 hasta tope_rango - 1
+while (n < tope_rango):
+    primo = True  # Reiniciamos la bandera para cada número nuevo
+    
+    # Bucle para verificar si 'n' tiene algún divisor entre 2 y n-1
+    for div in range(2, n):
+        ciclos_sin_break += 1  # Contamos este ciclo como una operación
+        if (n % div == 0):  # Si 'n' es divisible por 'div', no es primo
+            primo = False  # Cambiamos la bandera a False
+            # NOTA: No usamos break, por eso se sigue verificando aunque ya sepamos que no es primo
+
+    if (primo):  # Si sigue siendo primo, se imprime
+        print(n)
+
+    n += 1  # Pasamos al siguiente número
+
+# Mostramos cuántos ciclos se ejecutaron sin usar break
+print('Cantidad de ciclos (sin break): ' + str(ciclos_sin_break))
+
+
+# -----------------------------
+# Método USANDO break
+# -----------------------------
+ciclos_con_break = 0  # Reiniciamos el contador para este segundo método
+n = 0  # Reiniciamos el número a evaluar
+primo = True  # Bandera
+
+# Bucle principal para evaluar primos como antes
+while (n < tope_rango):
+    primo = True  # Reiniciamos la bandera
+
+    # Bucle para verificar divisibilidad
+    for div in range(2, n):
+        ciclos_con_break += 1  # Contamos este ciclo
+        if (n % div == 0):  # Si 'n' es divisible, no es primo
+            primo = False
+            break  # ¡Optimización! Ya no seguimos buscando más divisores
+
+    if (primo):  # Si es primo, se imprime
+        print(n)
+
+    n += 1  # Siguiente número
+
+# Mostramos cuántos ciclos se ejecutaron con break
+print('Cantidad de ciclos (con break): ' + str(ciclos_con_break))
+
+# Calculamos el porcentaje de optimización (cuánto menos se repitió el bucle)
+porcentaje = (ciclos_con_break / ciclos_sin_break) * 100
+print('Se optimizó a un ' + str(round(porcentaje, 2)) + '% de ciclos aplicando break')
 
