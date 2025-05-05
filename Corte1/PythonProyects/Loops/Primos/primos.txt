@@ -1,1 +1,22 @@
+import time  # Importa el módulo 'time', que permite medir el tiempo de ejecución del código.
+
+inicio = time.time()  # Guarda el tiempo actual en la variable 'inicio', para medir cuánto tarda el programa.
+
+# Bucle externo que recorre los números del 0 al 30 (incluyendo el 30)
+for i in range(0, 31):
+    conta = 0  # Inicializa un contador para contar cuántos divisores tiene 'i'
+
+    # Bucle interno que recorre los números del 1 hasta 'i' (inclusive)
+    for n in range(1, i + 1):
+        residue = i % n  # Calcula el residuo de dividir 'i' entre 'n'
+        if residue == 0:  # Si el residuo es 0, significa que 'n' es divisor de 'i'
+            conta = conta + 1  # Aumenta el contador de divisores
+
+    # Si el número tiene exactamente 2 divisores (1 y él mismo), entonces es primo
+    if conta == 2:
+        print(f'{i} es un primo')  # Imprime que 'i' es un número primo
+
+fin = time.time()  # Guarda el tiempo actual después de que terminó el programa
+
+print("t = ", (fin - inicio) * 1000)  # Calcula el tiempo total de ejecución en milisegundos y lo muestra
 
