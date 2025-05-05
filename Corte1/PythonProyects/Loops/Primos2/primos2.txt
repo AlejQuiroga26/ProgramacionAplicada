@@ -1,1 +1,33 @@
+a = 1  # Inicializa la variable 'a' en 1, para entrar al bucle while
+
+value = input('Ingrese un valor')  # Solicita al usuario un número límite
+value = int(value)  # Convierte ese valor de texto a entero
+
+while a == 1:  # Mientras el usuario quiera continuar (presione 1)
+    
+    for i in range(1, value + 1):  # Recorre los números desde 1 hasta 'value'
+        conta = 0  # Contador de divisores del número i
+
+        for n in range(1, i + 1):  # Verifica todos los posibles divisores de i
+            residue = i % n  # Calcula el residuo de dividir i entre n
+
+            if residue == 0:  # Si el residuo es 0, n es divisor de i
+                conta = conta + 1  # Aumenta el contador de divisores
+
+        if conta == 2:  # Si tiene exactamente 2 divisores, es primo
+            print(f'{i} es un primo')
+            print("\n")
+        else:  # Si tiene más de 2 divisores, no es primo
+            print(f'{i} NOOO es un primo')
+            print("\n")
+
+    print('Do you want to continue? Press 1 to do that')  # Pregunta si desea repetir
+    a = input()  # Recibe la respuesta
+    a = int(a)  # La convierte a entero
+
+    if a != 1:  # Si no es 1, se rompe el ciclo
+        break
+
+    value = input('Ingrese un valor')  # Si continúa, solicita un nuevo número
+    value = int(value)
 
