@@ -1,1 +1,12 @@
+import random  # Importa el módulo 'random', que permite generar números aleatorios.
+from matplotlib import pyplot as plt  # Importa 'pyplot' del módulo 'matplotlib' con el alias 'plt', para crear gráficos.
+
+# Agrega tu código debajo:
+numbers_a = range(1, 13)  # Crea una secuencia de números del 1 al 12 (ambos incluidos).
+numbers_b = [random.randint(1, 1000) for i in range(12)]  
+# Genera una lista de 12 números enteros aleatorios entre 1 y 1000. 
+# Se usa una lista por comprensión.
+
+plt.plot(numbers_a, numbers_b)  # Dibuja una gráfica de línea con los valores de 'numbers_a' en el eje x y 'numbers_b' en el eje y.
+plt.show()  # Muestra el gráfico en una ventana emergente.
 
