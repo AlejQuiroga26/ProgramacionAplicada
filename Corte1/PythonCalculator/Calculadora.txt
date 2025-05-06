@@ -1,1 +1,54 @@
+class Calculadora:
+    def sumar(self, a, b):
+        return a + b
+
+    def restar(self, a, b):
+        return a - b
+
+    def multiplicar(self, a, b):
+        return a * b
+
+    def dividir(self, a, b):
+        try:
+            return a / b
+        except ZeroDivisionError:
+            return
+
+
+mi_calculadora = Calculadora()
+
+print("Seleccione una operación:")
+print("1. Suma")
+print("2. Resta")
+print("3. Multiplicación")
+print("4. División")
+
+try:
+    
+    opcion = input("Ingrese el número de la operación: ")
+
+    
+    if opcion not in ["1", "2", "3", "4"]:
+        raise ValueError("Opción no válida. Por favor, seleccione una opción del 1 al 4.")
+
+    
+    a = float(input("Ingrese el primer número: "))
+    b = float(input("Ingrese el segundo número: "))
+
+   
+    if opcion == "1":
+        resultado = mi_calculadora.sumar(a, b)
+    elif opcion == "2":
+        resultado = mi_calculadora.restar(a, b)
+    elif opcion == "3":
+        resultado = mi_calculadora.multiplicar(a, b)
+    elif opcion == "4":
+        resultado = mi_calculadora.dividir(a, b)
+
+except ValueError as e:
+    resultado = f"Error: {e}"
+except Exception:
+    resultado = "Error inesperado. Por favor, intente de nuevo."
+
+print("Resultado:", resultado)
 
