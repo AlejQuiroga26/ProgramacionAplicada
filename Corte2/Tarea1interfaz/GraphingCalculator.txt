@@ -1,1 +1,74 @@
+import tkinter as tk
+from tkinter import messagebox
+
+
+class Calculadora:
+    def sumar(self, a, b):
+        return a + b
+
+    def restar(self, a, b):
+        return a - b
+
+    def multiplicar(self, a, b):
+        return a * b
+
+    def dividir(self, a, b):
+        try:
+            return a / b
+        except ZeroDivisionError:
+            return "Error: División por cero"
+
+
+def realizar_operacion(operacion):
+    try:
+        a = float(entrada_num1.get())
+        b = float(entrada_num2.get())
+
+        if operacion == "sumar":
+            resultado = mi_calculadora.sumar(a, b)
+        elif operacion == "restar":
+            resultado = mi_calculadora.restar(a, b)
+        elif operacion == "multiplicar":
+            resultado = mi_calculadora.multiplicar(a, b)
+        elif operacion == "dividir":
+            resultado = mi_calculadora.dividir(a, b)
+        else:
+            resultado = "Operación no válida"
+
+        etiqueta_resultado.config(text=f"Resultado: {resultado}")
+
+    except ValueError:
+        messagebox.showerror("Error", "Por favor, ingrese números válidos.")
+    except Exception:
+        messagebox.showerror("Error", "Ocurrió un error inesperado.")
+
+
+# Crear instancia de calculadora
+mi_calculadora = Calculadora()
+
+# Crear ventana principal
+ventana = tk.Tk()
+ventana.title("Calculadora con Tkinter")
+
+# Campos de entrada
+tk.Label(ventana, text="Primer número:").grid(row=0, column=0, padx=10, pady=5)
+entrada_num1 = tk.Entry(ventana)
+entrada_num1.grid(row=0, column=1, padx=10, pady=5)
+
+tk.Label(ventana, text="Segundo número:").grid(row=1, column=0, padx=10, pady=5)
+entrada_num2 = tk.Entry(ventana)
+entrada_num2.grid(row=1, column=1, padx=10, pady=5)
+
+# Botones de operaciones
+tk.Button(ventana, text="Sumar", command=lambda: realizar_operacion("sumar")).grid(row=2, column=0, pady=10)
+tk.Button(ventana, text="Restar", command=lambda: realizar_operacion("restar")).grid(row=2, column=1, pady=10)
+tk.Button(ventana, text="Multiplicar", command=lambda: realizar_operacion("multiplicar")).grid(row=3, column=0, pady=10)
+tk.Button(ventana, text="Dividir", command=lambda: realizar_operacion("dividir")).grid(row=3, column=1, pady=10)
+
+# Resultado
+etiqueta_resultado = tk.Label(ventana, text="Resultado: ")
+etiqueta_resultado.grid(row=4, column=0, columnspan=2, pady=10)
+
+# Ejecutar la aplicación
+ventana.mainloop()
 
