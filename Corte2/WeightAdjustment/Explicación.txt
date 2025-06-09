@@ -1,0 +1,25 @@
+### **Título: Implementación Simple de Aprendizaje Automático con Ajuste de Peso**
+
+Este código en Python representa una implementación básica de un modelo de aprendizaje automático que ajusta un peso (`w`) para aproximarse a una serie de valores objetivo (`targets`) a partir de entradas (`inputs`). 
+
+#### **Explicación del código**:
+1. Se define la lista de `inputs` y `targets`, que representan las entradas y sus valores esperados, respectivamente.
+2. Se inicializa un peso (`w`) y una tasa de aprendizaje (`learning_rate`).
+3. La función `predict(i)` calcula la predicción multiplicando el peso por la entrada.
+4. Dentro del bucle de entrenamiento (que se ejecuta 50 veces):
+   - Se generan predicciones a partir de las entradas.
+   - Se calcula el error restando las predicciones de los valores objetivo.
+   - Se calcula un costo como el promedio de los errores.
+   - Se imprimen los valores de interés.
+
+#### **Aporte Importante**:
+El código presenta un problema: aunque el costo se calcula, el peso (`w`) no se actualiza en cada iteración. Para que realmente ocurra el aprendizaje, es necesario actualizar `w` basándose en los errores, siguiendo la regla del descenso de gradiente:
+
+```python
+# Actualización del peso
+w += learning_rate * sum(errors) / len(errors)
+```
+
+Esto permitiría que el modelo mejore su precisión con cada iteración. Sin esta actualización, el modelo simplemente repite los mismos cálculos sin mejorar.
+
+Si quieres hacerlo más sofisticado, podrías considerar otros algoritmos de optimización como **Adam** o **SGD**. ¿Quieres que te ayude a mejorar el código?
