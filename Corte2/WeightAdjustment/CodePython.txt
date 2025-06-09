@@ -18,4 +18,6 @@ for _ in range(50):
     print (f"Errors: ", errors)
     print (f"Weight: {w:.10f}, Cost: {cost: .6f}")
 
+# Actualización del peso
+w += learning_rate * sum(errors) / len(errors)
 
